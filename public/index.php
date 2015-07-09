@@ -1,32 +1,6 @@
-<? $siteName = 'Shirts 4 Mike'; ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title><?= $siteName ?></title>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700" type="text/css">
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body>
-
-	<div class="header">
-
-		<div class="wrapper">
-
-			<h1 class="branding-title"><a href="./"><?= $siteName ?></a></h1>
-
-			<ul class="nav">
-				<li class="shirts"><a href="#">Shirts</a></li>
-				<li class="contact"><a href="#">Contact</a></li>
-				<li class="cart"><a href="#">Shopping Cart</a></li>
-			</ul>
-
-		</div>
-
-	</div>
-
-	<div id="content">
+<?
+$pageTitle = 'Unique T-shirts designed by frog';
+include 'include/header.php'; ?>
 
 		<div class="section banner">
 
@@ -76,22 +50,4 @@
 
 		</div>
 
-	</div>
-
-	<div class="footer">
-
-		<div class="wrapper">
-
-			<ul>		
-				<li><a href="http://twitter.com/treehouse">Twitter</a></li>
-				<li><a href="https://www.facebook.com/TeamTreehouse">Facebook</a></li>
-			</ul>
-
-			<p>&copy;<?= date('Y') . ' ' . $siteName?></p>
-
-		</div>
-	
-	</div>
-
-</body>
-</html>
+<? include 'include/footer.php'; ?>
