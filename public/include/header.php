@@ -19,6 +19,7 @@
         <ul class="nav">
             <li class="shirts <?= 'shirts' == $section ? 'on' : '' ?>"><a href="shirts.php">Shirts</a></li>
             <li class="contact <?= 'contact' == $section ? 'on' : '' ?>"><a href="contact.php">Contact</a></li>
+            <li class="about <?= 'about' == $section ? 'on' : '' ?>"><a href="about.php">About</a></li>
             <li class="cart"><a href="#">Shopping Cart</a></li>
         </ul>
 
