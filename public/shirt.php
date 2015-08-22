@@ -13,6 +13,7 @@ if (!isset($product)) {
 
 $section = "shirts";
 $pageTitle = $product["name"];
+
 include("include/header.php"); ?>
 
     <div class="section page">

@@ -1,5 +1,26 @@
 <?php
 
+function get_shirts_list_html($products, $last = false) {
+    $html = '';
+
+    if (0 < (int) $last) {
+        $products = array_slice($products, -4, $last, true);
+        krsort($products);
+    }
+
+    foreach($products as $product_id => $product) {
+        $html .=
+            '<li>
+                <a href="shirt.php?id=' . $product_id . '">
+                <img src="' . $product["img"] . '" alt="' . $product["name"] . '">
+                <p>View Details</p></a>
+            </li>'
+        ;
+    }
+
+    return $html;
+}
+
 $products = [];
 $products[101] = [
 	"name" => "Logo Shirt, Red",

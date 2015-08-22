@@ -1,7 +1,6 @@
 </div>
 
 <div class="footer">
-
     <div class="wrapper">
 
         <ul>
@@ -12,7 +11,6 @@
         <p>&copy;<?= date('Y') . ' ' . $siteName?></p>
 
     </div>
-
 </div>
 
 </body>

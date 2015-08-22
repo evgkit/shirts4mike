@@ -1,5 +1,4 @@
 <?
-
 if ("POST" == $_SERVER['REQUEST_METHOD']) {
     $emailBody = "Name: {$_POST['name']},\n
         Email: {$_POST['email']}.\n
@@ -13,6 +12,7 @@ if ("POST" == $_SERVER['REQUEST_METHOD']) {
 
 $pageTitle = 'Contact Mike';
 $section = 'contact';
+
 include 'include/header.php'; ?>
 
 <div class="section page">
@@ -67,7 +67,6 @@ include 'include/header.php'; ?>
                 <input type="submit" value="Send">
             </form>
         <? } ?>
-
     </div>
 </div>
 

@@ -11,7 +11,6 @@
 <body>
 
 <div class="header">
-
     <div class="wrapper">
 
         <h1 class="branding-title"><a href="./"><?= $siteName ?></a></h1>
@@ -24,7 +23,6 @@
         </ul>
 
     </div>
-
 </div>
 
 <div id="content">
