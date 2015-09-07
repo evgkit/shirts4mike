@@ -66,7 +66,10 @@ function getProductsSearch($searchTerm) {
     $products = getProducts();
 
     foreach ($products as $product) {
-        if (false !== stripos($product['name'], $searchTerm)) {
+        if (
+            false !== stripos($product['name'], $searchTerm) ||
+            false !== stripos($product['sku'], $searchTerm)
+        ) {
             $results[] = $product;
         }
     }
@@ -79,14 +82,22 @@ function getProductsSearch($searchTerm) {
  */
 function getProducts() {
     $products = [];
-    require_once ROOT_PATH . 'include/products_data.php';
+    require ROOT_PATH . 'include/products_data.php';
 
-    foreach($products as $product_id => $product) {
+    foreach ($products as $product_id => $product) {
         $products[$product_id]['sku'] = $product_id;
     }
 
     $products = array_reverse($products);
 
     return $products;
+}
+
+/**
+ * Return products count
+ * @return int
+ */
+function getProductsCount() {
+    return count(getProducts());
 }
 
