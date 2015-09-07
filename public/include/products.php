@@ -2,7 +2,34 @@
 require_once 'config.php';
 
 /**
- * Рендерит список свежих товаров
+ * Возвращает продукт по id
+ * @param $product_id
+ * @return bool
+ */
+function getProduct($product_id) {
+    try {
+        $product_id = (int) $product_id;
+
+        if (!$product_id) {
+          throw new Exception('Invalid product_id.');
+        }
+
+        $products = getProducts();
+
+        foreach ($products as $product) {
+            if ($product_id == $product['sku']) {
+                return $product;
+            }
+        }
+
+        throw new Exception('Product has not been found.');
+    } catch (\Exception $e) {
+        return false;
+    }
+}
+
+/**
+ * Рендерит список последних поступивних продуктов
  * @param bool|false $last
  * @return string
  */
@@ -30,7 +57,7 @@ function getShirtsListHtml($last = false) {
 }
 
 /**
- * Даёт все товары
+ * Возвращает все продукты
  * @return array
  */
 function getProducts() {

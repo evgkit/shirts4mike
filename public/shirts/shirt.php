@@ -2,17 +2,10 @@
 require_once '../include/config.php';
 
 require_once ROOT_PATH . 'include/products.php';
-$products = getProducts();
 
-if (isset($_GET['id'])) {
-    $product_id = $_GET['id'];
-    foreach ($products as $p) {
-        if ($product_id == $p['sku']) {
-            $product = $p;
-        }
-    }
-}
-if (!isset($product)) {
+$product = isset($_GET['id']) ? getProduct($_GET['id']) : '';
+
+if (!$product) {
     header('Location: ' . BASE_URL . 'shirts.php');
     exit();
 }
