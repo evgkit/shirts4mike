@@ -27,7 +27,7 @@ include ROOT_PATH . 'include/products.php';
 				<h2>Mike&rsquo;s Latest Shirts</h2>
 
 				<ul class="products">
-                    <?= getShirtsListHtml(4) ?>
+                    <?= getShirtsListHtml(false, 4) ?>
 				</ul>
 
 			</div>

@@ -3,7 +3,7 @@ require_once '../include/config.php';
 
 require_once ROOT_PATH . 'include/products.php';
 
-$product = isset($_GET['id']) ? getProduct($_GET['id']) : '';
+$product = isset($_GET['id']) ? getProduct(trim($_GET['id'])) : '';
 
 if (!$product) {
     header('Location: ' . BASE_URL . 'shirts.php');

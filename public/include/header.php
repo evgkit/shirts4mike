@@ -17,9 +17,10 @@ $siteName = 'Shirts 4 Mike'; ?>
         <h1 class="branding-title"><a href="<?= BASE_URL ?>"><?= $siteName ?></a></h1>
 
         <ul class="nav">
+           <!-- <li class="about <?/*= 'about' == $section ? 'on' : '' */?>"><a href="<?/*= BASE_URL */?>about/">About</a></li>-->
             <li class="shirts <?= 'shirts' == $section ? 'on' : '' ?>"><a href="<?= BASE_URL ?>shirts/">Shirts</a></li>
             <li class="contact <?= 'contact' == $section ? 'on' : '' ?>"><a href="<?= BASE_URL ?>contact/">Contact</a></li>
-            <li class="about <?= 'about' == $section ? 'on' : '' ?>"><a href="<?= BASE_URL ?>about/">About</a></li>
+            <li class="search <?= 'search' == $section ? 'on' : '' ?>"><a href="<?= BASE_URL ?>search/">Search</a></li>
             <li class="cart"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&amp;business=Q6NFNPFRBWR8S&amp;display=1">Shopping Cart</a></li>
         </ul>
 
