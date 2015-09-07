@@ -58,6 +58,7 @@ function getShirtsListHtml($products = false, $last = false) {
 
 /**
  * Returns products by search term
+ * @param $searchTerm
  * @return array
  */
 function getProductsSearch($searchTerm) {
@@ -65,10 +66,10 @@ function getProductsSearch($searchTerm) {
     $products = getProducts();
 
     foreach ($products as $product) {
-        // TODO: find products by searchTerm
-        $results[] = $product;
+        if (false !== stripos($product['name'], $searchTerm)) {
+            $results[] = $product;
+        }
     }
-
     return $results;
 }
 
