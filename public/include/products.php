@@ -12,7 +12,7 @@ function get_shirts_list_html($products, $last = false) {
     foreach($products as $product_id => $product) {
         $html .=
             '<li>
-                <a href="' . BASE_URL . 'shirt.php?id=' . $product_id . '">
+                <a href="' . BASE_URL . 'shirts/shirt.php?id=' . $product_id . '">
                 <img src="' . $product["img"] . '" alt="' . $product["name"] . '">
                 <p>View Details</p></a>
             </li>'

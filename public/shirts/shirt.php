@@ -1,7 +1,7 @@
 <?php
-require_once 'include/config.php';
+require_once '../include/config.php';
 
-include ROOT_PATH . 'include/products.php';
+include_once ROOT_PATH . 'include/products.php';
 
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];

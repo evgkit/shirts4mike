@@ -1,11 +1,11 @@
 <?php
-require_once 'include/config.php';
+require_once '../include/config.php';
 
 $pageTitle = 'Mike\'s Full Catalog of Shirts';
 $section = 'shirts';
 
 include ROOT_PATH . 'include/header.php';
-include ROOT_PATH . 'include/products.php';
+include_once ROOT_PATH . 'include/products.php';
 ?>
 
 <div class="section shirts page">
