@@ -1,9 +1,11 @@
-<?
+<?php
+require_once 'include/config.php';
+
 $pageTitle = 'Mike\'s Full Catalog of Shirts';
 $section = 'shirts';
 
-include 'include/header.php';
-include 'include/products.php';
+include ROOT_PATH . 'include/header.php';
+include ROOT_PATH . 'include/products.php';
 ?>
 
 <div class="section shirts page">
@@ -18,4 +20,4 @@ include 'include/products.php';
     </div>
 </div>
 
-<? include 'include/footer.php'; ?>
+<? include ROOT_PATH . 'include/footer.php'; ?>

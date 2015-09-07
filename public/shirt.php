@@ -1,38 +1,41 @@
-<?php include("include/products.php");
+<?php
+require_once 'include/config.php';
 
-if (isset($_GET["id"])) {
-    $product_id = $_GET["id"];
+include ROOT_PATH . 'include/products.php';
+
+if (isset($_GET['id'])) {
+    $product_id = $_GET['id'];
     if (isset($products[$product_id])) {
         $product = $products[$product_id];
     }
 }
 if (!isset($product)) {
-    header("Location: shirts.php");
+    header('Location: ' . BASE_URL . 'shirts.php');
     exit();
 }
 
-$section = "shirts";
-$pageTitle = $product["name"];
+$section = 'shirts';
+$pageTitle = $product['name'];
 
-include("include/header.php"); ?>
+include ROOT_PATH . 'include/header.php'; ?>
 
     <div class="section page">
         <div class="wrapper">
-            <div class="breadcrumb"><a href="shirts.php">Shirts</a> &gt; <?php echo $product["name"]; ?></div>
+            <div class="breadcrumb"><a href="<?= BASE_URL ?>shirts.php">Shirts</a> &gt; <?= $product["name"] ?></div>
 
             <div class="shirt-picture">
                 <span>
-                    <img src="<?php echo $product["img"]; ?>" alt="<?php echo $product["name"]; ?>">
+                    <img src="<?= $product["img"] ?>" alt="<?= $product["name"] ?>">
                 </span>
             </div>
 
             <div class="shirt-details">
-                <h1><span class="price">$<?php echo $product["price"]; ?></span> <?php echo $product["name"]; ?></h1>
+                <h1><span class="price">$<?= $product["price"] ?></span> <?= $product["name"] ?></h1>
 
                 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="<?php echo $product["paypal"]; ?>">
-                    <input type="hidden" name="item_name" value="<?php echo $product["name"]; ?>">
+                    <input type="hidden" name="hosted_button_id" value="<?= $product["paypal"] ?>">
+                    <input type="hidden" name="item_name" value="<?= $product["name"] ?>">
                     <table>
                         <tr>
                             <th>
@@ -56,4 +59,4 @@ include("include/header.php"); ?>
         </div>
     </div>
 
-<?php include("include/footer.php"); ?>
+<? include ROOT_PATH . 'include/footer.php'; ?>

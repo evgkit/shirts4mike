@@ -1,15 +1,17 @@
-<?
+<?php
+require_once 'include/config.php';
+
 $pageTitle = 'Unique T-shirts designed by frog';
 
-include 'include/header.php';
-include 'include/products.php'; ?>
+include ROOT_PATH . 'include/header.php';
+include ROOT_PATH . 'include/products.php'; ?>
 
 		<div class="section banner">
 			<div class="wrapper">
-				<img class="hero" src="img/mike-the-frog.png" alt="Mike the Frog says:">
+				<img class="hero" src="<?= BASE_URL ?>img/mike-the-frog.png" alt="Mike the Frog says:">
 
 				<div class="button">
-					<a href="shirts.php">
+					<a href="<?= BASE_URL ?>shirts.php">
 						<h2>Hey, I&rsquo;m Mike!</h2>
 						<p>Check Out My Shirts</p>
 					</a>
@@ -30,4 +32,4 @@ include 'include/products.php'; ?>
 			</div>
 		</div>
 
-<? include 'include/footer.php'; ?>
+<? include ROOT_PATH . 'include/footer.php'; ?>

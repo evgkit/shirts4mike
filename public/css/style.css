@@ -707,6 +707,46 @@ form input[type="submit"] {
     text-transform: uppercase;
     padding: 14px;
 }
+
+.search form {
+    width: auto;
+    text-align: center;
+}
+.search form input[type="text"] {
+    font-size: 24px;
+    width: 70%;
+    line-height: 1.5;
+    vertical-align: top;
+    padding: 3px;
+}
+.search form input[type="submit"] {
+    width: auto;
+    vertical-align: top;
+}
+.section.page.search p {text-align: center;}
+
+.pagination {
+    text-align: right;
+    margin: 1em 0;
+}
+.pagination a,
+.pagination span {
+    padding: 5px 20px;
+    border: 1px solid #e3e1e0;
+    display: inline-block;
+    text-decoration: none;
+    color: #676767;
+}
+.pagination span {background: #CCC; border-color: #999; color: #444;}
+.pagination a:hover {background: #f0eeed;}
+
+.page p.message {
+    background: #ffeca4;
+    border: 1px solid #f16702;
+    padding: 1em;
+    width: 344px;
+}
+
 .breadcrumb {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
