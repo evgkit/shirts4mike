@@ -4,7 +4,8 @@ require_once 'include/config.php';
 $pageTitle = 'Unique T-shirts designed by frog';
 
 include ROOT_PATH . 'include/header.php';
-include ROOT_PATH . 'include/products.php'; ?>
+include ROOT_PATH . 'include/products.php';
+?>
 
 		<div class="section banner">
 			<div class="wrapper">
@@ -26,7 +27,7 @@ include ROOT_PATH . 'include/products.php'; ?>
 				<h2>Mike&rsquo;s Latest Shirts</h2>
 
 				<ul class="products">
-                    <?= get_shirts_list_html($products, 4) ?>
+                    <?= getShirtsListHtml(4) ?>
 				</ul>
 
 			</div>

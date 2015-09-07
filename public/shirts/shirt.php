@@ -2,11 +2,14 @@
 require_once '../include/config.php';
 
 require_once ROOT_PATH . 'include/products.php';
+$products = getProducts();
 
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
-    if (isset($products[$product_id])) {
-        $product = $products[$product_id];
+    foreach ($products as $p) {
+        if ($product_id == $p['sku']) {
+            $product = $p;
+        }
     }
 }
 if (!isset($product)) {
@@ -44,7 +47,7 @@ include ROOT_PATH . 'include/header.php'; ?>
                             </th>
                             <td>
                                 <select name="os0" id="os0">
-                                    <? foreach($product["sizes"] as $size) { ?>
+                                    <? foreach ($product["sizes"] as $size) { ?>
                                         <option value="<?= $size ?>"><?= $size ?></option>
                                     <? } ?>
                                 </select>
