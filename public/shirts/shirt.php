@@ -1,7 +1,7 @@
 <?php
 require_once '../include/config.php';
 
-include_once ROOT_PATH . 'include/products.php';
+require_once ROOT_PATH . 'include/products.php';
 
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
@@ -21,11 +21,11 @@ include ROOT_PATH . 'include/header.php'; ?>
 
     <div class="section page">
         <div class="wrapper">
-            <div class="breadcrumb"><a href="<?= BASE_URL ?>shirts.php">Shirts</a> &gt; <?= $product["name"] ?></div>
+            <div class="breadcrumb"><a href="<?= BASE_URL ?>shirts/">Shirts</a> &gt; <?= $product["name"] ?></div>
 
             <div class="shirt-picture">
                 <span>
-                    <img src="<?= $product["img"] ?>" alt="<?= $product["name"] ?>">
+                    <img src="<?= BASE_URL . $product["img"] ?>" alt="<?= $product["name"] ?>">
                 </span>
             </div>
 

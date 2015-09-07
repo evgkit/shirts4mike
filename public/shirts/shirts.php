@@ -5,7 +5,7 @@ $pageTitle = 'Mike\'s Full Catalog of Shirts';
 $section = 'shirts';
 
 include ROOT_PATH . 'include/header.php';
-include_once ROOT_PATH . 'include/products.php';
+require_once ROOT_PATH . 'include/products.php';
 ?>
 
 <div class="section shirts page">
