@@ -1,3 +1,13 @@
 RewriteEngine On
 RewriteRule ^shirts/$ /shirts/shirts.php
 RewriteRule ^shirts/(\d+)/$ /shirts/shirt.php?id=$1
+
+RewriteRule ^shirts.php$ /shirts/ [R=301]
+RewriteRule ^contact.php$ /contact/ [R=301]
+RewriteRule ^receipt.php$ /receipt/ [R=301]
+RewriteRule ^about.php$ /about/ [R=301]
+
+RewriteRule ^(shirts/\d+)$ /$1/ [R=301]
+
+RewriteCond %{QUERY_STRING} ^id=(\d+)$
+RewriteRule ^shirt.php$ /shirts/%1/? [R=301]
