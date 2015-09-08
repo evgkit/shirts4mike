@@ -34,7 +34,7 @@ function getProduct($product_id) {
  * @param bool|false $products
  * @return string
  */
-function getShirtsList($products = false, $last = false) {
+function getProductsList($products = false, $last = false) {
     $products = $products ?: getProducts();
 
     if (0 < (int) $last) {
@@ -69,11 +69,17 @@ function getProductsSearch($searchTerm) {
  * @return array
  */
 function getProducts() {
-    $products = [];
-    require ROOT_PATH . 'include/products_data.php';
+    require ROOT_PATH . 'include/database.php';
 
-    foreach ($products as $product_id => $product) {
-        $products[$product_id]['sku'] = $product_id;
+    try {
+        $results = $db->query(
+            "SELECT * FROM products ORDER BY sku ASC"
+        );
+
+        $products = $results->fetchAll(PDO::FETCH_ASSOC);
+    } catch (\Exception $e) {
+        echo 'Data could not be retrieved from database';
+        exit();
     }
 
     $products = array_reverse($products);

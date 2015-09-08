@@ -1,8 +1,16 @@
 <? require_once '../include/config.php';
 
+/* This file contains instructions for three different states of the form:
+ *   - Displaying the initial search form
+ *   - Handling a form submission and ...
+ *       - ... displaying the results if matches are found.
+ *       - ... displaying a "no results found" message if necessary.
+ */
+
+// if a non-blank search term is specified in
+// the query string, perform a search
 $searchTerm = isset($_GET['s']) ? trim($_GET['s']) : '';
 $products = '';
-
 if ($searchTerm) {
     require_once ROOT_PATH . 'include/products.php';
     $products = getProductsSearch($searchTerm);
@@ -25,7 +33,7 @@ include ROOT_PATH . 'include/header.php'; ?>
             <? if ($searchTerm) {
                 if ($products) { ?>
                     <ul class="products">
-                        <?= getShirtsListHtml($products) ?>
+                        <?= getProductsList($products) ?>
                     </ul>
                 <? } else { ?>
                     <p>No products were found</p>

@@ -1,4 +1,8 @@
-<ul class="products">
+<?php
+
+// This file displays products in a list view.
+
+?><ul class="products">
     <? foreach ($products as $product) {
         ?><li>
             <a href="<?= BASE_URL .  'shirts/' . $product["sku"] . '/' ?>">

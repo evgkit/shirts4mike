@@ -1,25 +1,41 @@
 <?php
 require_once '../include/config.php';
 
+/* This file contains instructions for three different states of the form:
+ *   - Displaying the initial contact form
+ *   - Handling the form submission and sending the email
+ *   - Displaying a thank you message
+ */
+
 $notice = $name = $email = $message = $reason = "";
 
 try {
+
+    // a request method of post indicates that
+    // we are receiving a form submission
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        // the form has fields for name, email, message and sending reason
         $name = trim($_POST["name"]);
         $email = trim($_POST["email"]);
         $message = trim($_POST["message"]);
         $reason = trim($_POST["reason"]);
 
+        // the fields name, email, and message are required
         if (empty($name) || empty($email) || empty($message)) {
             throw new Exception("You must specify a value for name, email address, and message.");
         }
 
-        foreach( $_POST as $value ){
+        // this code checks for malicious code attempting
+        // to inject values into the email header
+        foreach ($_POST as $value) {
             if (stripos($value,'Content-Type:') !== FALSE ) {
                 throw new Exception("There was a problem with the information you entered.");
             }
         }
 
+        // the field named address is used as a spam honeypot
+        // it is hidden from users, and it must be left blank
         if ($_POST["address"] != "") {
             throw new Exception("Your form submission has an error.");
         }
@@ -31,6 +47,7 @@ try {
             throw new Exception("You must specify a valid email address.");
         }
 
+        // let's send the email
         $email_body .= "Name: " . $name . "<br>";
         $email_body .= "Email: " . $email . "<br>";
         $email_body .= "Message: " . $message;
@@ -42,9 +59,9 @@ try {
         $mail->MsgHTML($email_body);
 
         // TODO: Send email
-        /*if (!$mail->Send()) {
+        if (!$mail->Send()) {
             throw new Exception("There was a problem sending the email: " . $mail->ErrorInfo);
-        }*/
+        }
 
         $notice = "Thanks for the email! I&rsquo;ll be in touch shortly.";
     }

@@ -6,7 +6,7 @@ $pageTitle = 'Unique T-shirts designed by frog';
 include ROOT_PATH . 'include/header.php';
 include ROOT_PATH . 'include/products.php';
 
-$products = getShirtsList(false, 4);
+$products = getProductsList(false, 4);
 
 ?>
 
