@@ -31,11 +31,9 @@ include ROOT_PATH . 'include/header.php'; ?>
             </form>
 
             <? if ($searchTerm) {
-                if ($products) { ?>
-                    <ul class="products">
-                        <?= getProductsList($products) ?>
-                    </ul>
-                <? } else { ?>
+                if ($products) {
+                    include ROOT_PATH . 'include/partials/partial-list.html.php';
+                } else { ?>
                     <p>No products were found</p>
                 <? }
             } ?>
