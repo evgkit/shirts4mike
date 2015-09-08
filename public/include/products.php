@@ -14,15 +14,14 @@ function getProduct($product_id) {
           throw new Exception('Invalid product_id.');
         }
 
-        $products = getProducts();
+        require ROOT_PATH . 'include/database.php';
 
-        foreach ($products as $product) {
-            if ($product_id == $product['sku']) {
-                return $product;
-            }
-        }
+        /* @var $db */
+        $result = $db->prepare('SELECT * FROM products WHERE sku = :sku');
+        $result->bindParam('sku', $product_id);
+        $result->execute();
+        return $result->fetch(PDO::FETCH_ASSOC);
 
-        throw new Exception('Product has not been found.');
     } catch (\Exception $e) {
         return false;
     }
@@ -71,6 +70,7 @@ function getProductsSearch($searchTerm) {
 function getProducts() {
     require ROOT_PATH . 'include/database.php';
 
+    /* @var $db */
     try {
         $results = $db->query(
             "SELECT * FROM products ORDER BY sku ASC"
