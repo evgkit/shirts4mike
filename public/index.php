@@ -5,6 +5,9 @@ $pageTitle = 'Unique T-shirts designed by frog';
 
 include ROOT_PATH . 'include/header.php';
 include ROOT_PATH . 'include/products.php';
+
+$products = getShirtsList(false, 4);
+
 ?>
 
 		<div class="section banner">
@@ -26,9 +29,7 @@ include ROOT_PATH . 'include/products.php';
 
 				<h2>Mike&rsquo;s Latest Shirts</h2>
 
-				<ul class="products">
-                    <?= getShirtsListHtml(false, 4) ?>
-				</ul>
+				<? include ROOT_PATH . 'include/partials/partial-list.html.php'; ?>
 
 			</div>
 		</div>

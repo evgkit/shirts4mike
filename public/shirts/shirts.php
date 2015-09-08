@@ -13,11 +13,9 @@ if ($currentPage != (int) $_GET['page'] ) {
     header('Location: ./?page=' . $currentPage);
 }
 
-$subset['start'] = (($currentPage - 1) * $productsPerPage) + 1;
-$subset['end'] = $currentPage * $productsPerPage < $totalProducts ?
-    $currentPage * $productsPerPage : $totalProducts;
+$offset = (($currentPage - 1) * $productsPerPage);
 
-var_dump($_GET['page'], $totalProducts, $totalPages, $currentPage, $subset['start'], $subset['end']);
+$products = getProductsSubset($offset, $productsPerPage);
 
 $pageTitle = 'Mike\'s Full Catalog of Shirts';
 $section = 'shirts';
@@ -31,9 +29,11 @@ include ROOT_PATH . 'include/header.php';
 
         <h1>Mike&rsquo;s Full Catalog of Shirts</h1>
 
-        <ul class="products">
-            <?= getShirtsListHtml() ?>
-        </ul>
+        <? include ROOT_PATH . 'include/partials/partial-pagination.html.php'; ?>
+
+        <? include ROOT_PATH . 'include/partials/partial-list.html.php'; ?>
+
+        <? include ROOT_PATH . 'include/partials/partial-pagination.html.php'; ?>
 
     </div>
 </div>

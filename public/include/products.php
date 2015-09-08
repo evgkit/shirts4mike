@@ -29,31 +29,19 @@ function getProduct($product_id) {
 }
 
 /**
- * Renders all products or part of them
+ * Returns all products or part of them
  * @param bool|false $last
  * @param bool|false $products
  * @return string
  */
-function getShirtsListHtml($products = false, $last = false) {
-    $html = '';
-
+function getShirtsList($products = false, $last = false) {
     $products = $products ?: getProducts();
 
     if (0 < (int) $last) {
         $products = array_slice($products, 0, $last, true);
     }
 
-    foreach ($products as $product) {
-        $html .=
-            '<li>
-                <a href="' . BASE_URL .  'shirts/' . $product["sku"] . '/">
-                <img src="' . BASE_URL . $product["img"] . '" alt="' . $product["name"] . '">
-                <p>View Details</p></a>
-            </li>'
-        ;
-    }
-
-    return $html;
+    return $products;
 }
 
 /**
@@ -94,10 +82,20 @@ function getProducts() {
 }
 
 /**
- * Return products count
+ * Returns products count
  * @return int
  */
 function getProductsCount() {
     return count(getProducts());
+}
+
+/**
+ * Returns subset of products for pagination
+ * @param $offset
+ * @param $length
+ * @return array
+ */
+function getProductsSubset($offset, $length) {
+    return array_slice(getProducts(), $offset, $length, true);
 }
 
